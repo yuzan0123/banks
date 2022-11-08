@@ -22,7 +22,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Xyu\\Sand\\": "src/"
+            "Xyu\\Banks\\": "src/"
         },
         "files": [
             "src/Support/helper.php"

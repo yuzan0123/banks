@@ -4,13 +4,15 @@ namespace Xyu\Banks;
 
 use Hanson\Foundation\Foundation;
 use Xyu\Banks\Ccb\LifeAccount;
+use Xyu\Banks\Ccb\Order;
 
 /**
  * Class BankApp
- * @package Xyu\Sand\SandApp
+ * @package Xyu\Banks\SandApp
  *
  * @property-read Decrypt $decrypt
  * @property-read LifeAccount $life_account
+ * @property-read Order $order
  *
  */
 class BankApp extends Foundation
