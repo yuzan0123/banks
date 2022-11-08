@@ -1,0 +1,41 @@
+{
+    "name": "xyu/banks",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^7.0|^8.0",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-openssl": "*",
+        "hanson/foundation-sdk": "^5.0"
+    },
+    "require-dev": {
+        "hyperf/utils": "~2.2.0|~3.0.0"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "suggest": {
+        "hyperf/guzzle": "~2.2.0|~3.0.0",
+        "hyperf/di": "~2.2.0|~3.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Xyu\\Sand\\": "src/"
+        },
+        "files": [
+            "src/Support/helper.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Xyu\\Banks\\Laravel\\ServiceProvider"
+            ]
+        },
+        "hyperf": {
+            "config": "Xyu\\Banks\\ConfigProvider"
+        }
+    }
+}

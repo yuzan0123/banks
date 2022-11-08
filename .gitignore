@@ -1,0 +1,8 @@
+vendor
+/*.php
+/*.pem
+/*.pfx
+/*.cer
+composer.lock
+.idea
+.DS_Store
