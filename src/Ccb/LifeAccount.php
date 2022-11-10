@@ -32,7 +32,7 @@ class LifeAccount extends AbstractGateway
                 'APPID' => $params['appid'] ?? null,
                 'OPENID' => $params['openid'] ?? null,
                 'ORDERID' => $params['orderId'],
-                'TOKEN' => $params['TOKEN'] ?? null,
+                'TOKEN' => $params['token'] ?? null,
             ];
             return $this->app->getUrl() . '?' . http_build_query([
                     'platform' => $params['platform'] ?? 'ccblife', // 默认建行生活平台标识符
