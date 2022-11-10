@@ -31,7 +31,7 @@ class LifeAccount extends AbstractGateway
                 'LTT' => $params['ltt'],
                 'APPID' => $params['appid'] ?? null,
                 'OPENID' => $params['openid'] ?? null,
-                'ORDERID' => $params['orderId'],
+                'ORDERID' => $params['orderId'] ?? null,
                 'TOKEN' => $params['token'] ?? null,
             ];
             return $this->app->getUrl() . '?' . http_build_query([
