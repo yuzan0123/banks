@@ -36,22 +36,52 @@ class BankApp extends Foundation
 
     public function getUrl()
     {
-        return $this->getConfig('url');
+        return $this->getConfig('url') ?: '';
     }
 
     public function getPublicKey()
     {
-        return $this->getConfig('public_key');
+        return $this->getConfig('public_key') ?: '';
     }
 
     public function getPrivateKey()
     {
-        return $this->getConfig('private_key');
+        return $this->getConfig('private_key') ?: '';
+    }
+
+    public function getEncPub()
+    {
+        return $this->getConfig('enc_pub') ?: '';
+    }
+
+    public function getForMid()
+    {
+        return $this->getConfig('platform_id') ?: '';
     }
 
     public function getPlMid()
     {
-        return $this->getConfig('pl_mid');
+        return $this->getConfig('pl_mid') ?: '';
+    }
+
+    public function getMid()
+    {
+        return $this->getConfig('mid') ?: '';
+    }
+
+    public function getPostId()
+    {
+        return $this->getConfig('post_id') ?: '';
+    }
+
+    public function getBranchId()
+    {
+        return $this->getConfig('branch_id') ?: '';
+    }
+
+    public function getPostId19()
+    {
+        return $this->getConfig('postid_19') ?: '';
     }
 
     public function setRequestId(string $requestId): BankApp

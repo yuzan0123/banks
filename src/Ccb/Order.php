@@ -19,30 +19,30 @@ class Order extends AbstractGateway
     public function orderPay(array $params)
     {
         try {
-            $body = [
-                'MERCHANTID' => $this->app->getPlMid(),
-                'POSID' => '',
-                'BRANCHID' => '',
-//                'POSID19' => '',
-                'PLATMCTID' => '',
+            $mac = $body = [
+                'MERCHANTID' => $this->app->getMid(),
+                'POSID' => $this->app->getPostId(),
+                'BRANCHID' => $this->app->getBranchId(),
+                'POSID19' => $this->app->getPostId19(),
+                'PLATMCTID' => $this->app->getPlMid(),
                 'ORDERID' => $params['orderId'],
                 'PAYMENT' => $params['price'],
                 'CURCODE' => '01',
                 'TXCODE' => '520100',
                 'REMARK1' => $params['remark1'] ?? '',
-                'REMARK2' => $params['remark2'],
+                'REMARK2' => $this->app->getForMid(), // 服务方编号
                 'TYPE' => '1',
                 'GATEWAY' => '0',
                 'CLIENTIP' => $params['clientIp'] ?? '',
                 'REGINFO' => $params['reginfo'] ?? '',
                 'PROINFO' => $params['proinfo'] ?? '',
                 'REFERER' => $params['referer'] ?? '',
-//                'INSTALLNUM' => '',
+                'INSTALLNUM' => $params['installNum'] ?? '',
                 'THIRDAPPINFO' => $params['thirdAppInfo'],
                 'TIMEOUT' => $params['timeout'] ?? date('YmdHis', time() + 1800),
                 'USERID' => $params['userId'] ?? '',
                 'TOKEN' => $params['token'] ?? '',
-                'PAYSUCCESSURL' => $params['notifyUrl'] ?? '',
+                'PAYSUCCESSURL' => $params['payUrl'] ?? '',
                 'PAYBITMAP' => $params['bitmap'] ?? '',
                 'POINTAVYID' => $params['pointAvyid'] ?? '',
                 'DCEPDEPACCNO' => $params['dcepdep'] ?? '',
@@ -50,14 +50,35 @@ class Order extends AbstractGateway
                 'ONLY_CREDIT_PAY_FLAG' => $params['onlyPayFlag'] ?? '',
                 'FIXEDPOINTVAL' => $params['fixedpoin'] ?? '',
                 'EXTENDPARAMS' => $params['extend'] ?? '',
-                'PLATFORMPUB' => '1',
+                'PLATFORMPUB' => $this->app->getPublicKey(), // 服务方公钥
                 'MAC' => '',
-                'PLATFORMID' => '1',
-                'ENCPUB' => '1',
-//                'SCNID' => '',
-//                'SCN_PLTFRM_ID' => '',
+                'PLATFORMID' => $this->app->getForMid(), // 服务方编号
+                'ENCPUB' => $this->app->getEncPub(), // 商户公钥密文
+                'SCNID' => $params['scanId'] ?? '',
+                'SCN_PLTFRM_ID' => $params['scnPltId'] ?? '',
             ];
-            $mac = md5(http_build_query($body));
+
+            /* body 参数定义*/
+            if(isset($body['MERCHANTID']) && ! $body['MERCHANTID']) unset($mac['MERCHANTID']);
+            if(isset($body['POSID']) && ! $body['POSID']) unset($mac['POSID']);
+            if(isset($body['BRANCHID']) && ! $body['BRANCHID']) unset($mac['BRANCHID']);
+            if(isset($body['PLATMCTID']) && ! $body['PLATMCTID']) unset($mac['PLATMCTID']);
+            if(isset($body['MERCHANTID']) && ! $body['MERCHANTID']) unset($mac['MERCHANTID']);
+            if(isset($body['PLATFORMPUB']) && ! $body['PLATFORMPUB']) unset($mac['PLATFORMPUB']);
+            if(isset($body['ENCPUB']) && ! $body['ENCPUB']) unset($mac['ENCPUB']);
+            /* body */
+
+            /* mac 参数定义*/
+            unset($mac['POSID19'],$mac['PLATFORMID'],$mac['ENCPUB'],$mac['SCNID'],$mac['SCN_PLTFRM_ID']);
+            if(! $mac['PLATMCTID']) unset($mac['PLATMCTID']);
+            if(! $mac['TIMEOUT']) unset($mac['TIMEOUT']);
+            if(! $mac['USERID']) unset($mac['USERID']);
+            if(! $mac['TOKEN']) unset($mac['TOKEN']);
+            if(! $mac['PAYSUCCESSURL']) unset($mac['PAYSUCCESSURL']);
+            if(! $mac['PAYBITMAP']) unset($mac['PAYBITMAP']);
+            $mac = md5(http_build_query($mac));
+            /* mac */
+
             $body['MAC'] = $mac;
 
             $this->relativeUrl = 'A3341O031';
@@ -88,10 +109,9 @@ class Order extends AbstractGateway
             $body = [
                 'USER_ID' => $params['userId'],
                 'ORDER_ID' => $params['orderId'],
-                'ORDER_DT' => $params['orderDate'],
-                'TOTAL_AMT' => $params['totalPrice'],
+                'ORDER_DT' => $params['orderDate'] ?? date('YmdHis'),
+                'TOTAL_AMT' => $params['price'],
                 'PAY_AMT' => $params['payPrice'] ?? '',
-                'PAYMENT' => $params['price'],
                 'DISCOUNT_AMT' => $params['discountPrice'] ?? '',
                 'DISCOUNT_AMT_DESC' => $params['discountDesc'] ?? '',
                 'ORDER_STATUS' => $params['orderStatus'] ?? 0,
@@ -136,10 +156,9 @@ class Order extends AbstractGateway
                 $body[] = [
                     'USER_ID' => $val['userId'],
                     'ORDER_ID' => $val['orderId'],
-                    'ORDER_DT' => $val['orderDate'],
-                    'TOTAL_AMT' => $val['totalPrice'],
+                    'ORDER_DT' => $val['orderDate'] ?? date('YmdHis'),
+                    'TOTAL_AMT' => $val['price'],
                     'PAY_AMT' => $val['payPrice'] ?? '',
-                    'PAYMENT' => $val['price'],
                     'DISCOUNT_AMT' => $val['discountPrice'] ?? '',
                     'DISCOUNT_AMT_DESC' => $val['discountDesc'] ?? '',
                     'ORDER_STATUS' => $val['orderStatus'] ?? 0,
