@@ -16,7 +16,7 @@ class Order extends AbstractGateway
      * @return string
      * @throws \Throwable
      */
-    public function orderPay(array $params)
+    public function orderPay(array $params): string
     {
         try {
             $mac = $body = [
@@ -59,13 +59,12 @@ class Order extends AbstractGateway
             ];
 
             /* body 参数定义*/
-            if(isset($body['MERCHANTID']) && ! $body['MERCHANTID']) unset($mac['MERCHANTID']);
-            if(isset($body['POSID']) && ! $body['POSID']) unset($mac['POSID']);
-            if(isset($body['BRANCHID']) && ! $body['BRANCHID']) unset($mac['BRANCHID']);
-            if(isset($body['PLATMCTID']) && ! $body['PLATMCTID']) unset($mac['PLATMCTID']);
-            if(isset($body['MERCHANTID']) && ! $body['MERCHANTID']) unset($mac['MERCHANTID']);
-            if(isset($body['PLATFORMPUB']) && ! $body['PLATFORMPUB']) unset($mac['PLATFORMPUB']);
-            if(isset($body['ENCPUB']) && ! $body['ENCPUB']) unset($mac['ENCPUB']);
+            if(isset($body['MERCHANTID']) && ! $body['MERCHANTID']) unset($body['MERCHANTID']);
+            if(isset($body['POSID']) && ! $body['POSID']) unset($body['POSID']);
+            if(isset($body['BRANCHID']) && ! $body['BRANCHID']) unset($body['BRANCHID']);
+            if(isset($body['PLATMCTID']) && ! $body['PLATMCTID']) unset($body['PLATMCTID']);
+            if(isset($body['PLATFORMPUB']) && ! $body['PLATFORMPUB']) unset($body['PLATFORMPUB']);
+            if(isset($body['ENCPUB']) && ! $body['ENCPUB']) unset($body['ENCPUB']);
             /* body */
 
             /* mac 参数定义*/
