@@ -5,12 +5,12 @@ return [
     'ccb' => [
         // 商户号
         'pl_mid' => env('CCB_PLMID',''),
-        // 接口地址
+        // 服务方页面链接地址，一般为中间页面，用于对跳转参数的解密验签处理及二次跳转
         'url' => env('CCB_URL',''),
         // 公钥文件
-        'public_key_path' => env('CCB_PUB_KEY_PATH',''),
+        'public_key' => env('CCB_PUB_KEY',''),
         // 私钥文件
-        'private_key_path' => env('CCB_PRI_KEY_PATH',''),
+        'private_key' => env('CCB_PRI_KEY',''),
 
     ]
 

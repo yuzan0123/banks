@@ -11,7 +11,7 @@ class AES
     const MAX_DECRYPT_BLOCK = 128;
 
 
-    public static function priDecrypt(string $priKey, string $data)
+    public static function priDecrypt($priKey, string $data)
     {
         $result = '';
 
@@ -48,7 +48,6 @@ class AES
      */
     public static function sign(string $data, string $privateKey): string
     {
-        $signature = false;
         openssl_sign($data,$signature, $privateKey);
         return base64_encode($signature);
     }
@@ -98,14 +97,12 @@ class AES
                 throw new AesException('getPrivateKey::file_get_contents ERROR');
             }
             $cert   = chunk_split($file, 64, "\n");
-            $cert   = "-----BEGIN CERTIFICATE-----\n" . $cert . "-----END CERTIFICATE-----\n";
+            $cert   = "-----BEGIN PRIVATE-----\n" . $cert . "-----END PRIVATE-----\n";
             $res    = openssl_pkey_get_private($cert);
-            $detail = openssl_pkey_get_details($res);
-            unset($res);
-            if (!$detail) {
+            if (! $res) {
                 throw new AesException('getPrivateKey::openssl_pkey_get_details ERROR');
             }
-            return $detail['key'];
+            return $res;
         } catch (\Throwable $e) {
             throw $e;
         }

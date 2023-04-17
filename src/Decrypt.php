@@ -25,7 +25,6 @@ class Decrypt
     {
         $privateKey = $this->app->getPrivateKey();
         $key = AES::privateKey($privateKey);
-        $signature = false;
         openssl_sign($data,$signature, $key);
         return base64_encode($signature);
     }

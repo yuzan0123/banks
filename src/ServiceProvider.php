@@ -6,6 +6,7 @@ use Hanson\Foundation\Http;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 use Xyu\Banks\Ccb\LifeAccount;
+use Xyu\Banks\Ccb\Order;
 
 class ServiceProvider implements ServiceProviderInterface
 {
@@ -22,6 +23,10 @@ class ServiceProvider implements ServiceProviderInterface
 
         $pimple['life_account'] = function (BankApp $app) {
             return new LifeAccount($app);
+        };
+
+        $pimple['order'] = function (BankApp $app) {
+            return new Order($app);
         };
 
     }
