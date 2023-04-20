@@ -19,12 +19,6 @@ abstract class AbstractGateway
     protected $relativeUrl;
 
     /**
-     * 服务方编号
-     * @var string
-     */
-    protected $svcid;
-
-    /**
      * @var BankApp
      */
     protected $app;
@@ -44,7 +38,7 @@ abstract class AbstractGateway
         return $this->performRequest([
             'cnt' => $this->app->decrypt->publicEncrypt(json_encode($this->struct($body))),
             'mac' => md5(http_build_query($body)),
-            'svcid' => $this->svcid
+            'svcid' => $this->app->getSvcid()
         ]);
     }
 

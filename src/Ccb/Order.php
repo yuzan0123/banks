@@ -86,7 +86,7 @@ class Order extends AbstractGateway
 
             return http_build_query([
                 'txcode' => 'A3341OM01',
-                'svcid' => '',
+                'svcid' => $this->app->getSvcid(),
                 'cnt' => $cnt,
                 'mac' => $mac,
             ]);
@@ -133,8 +133,6 @@ class Order extends AbstractGateway
 
             $this->relativeUrl = 'A3341O031';
 
-            $this->svcid = '';
-
             return $this->request($body);
         }catch (\Throwable $e) {
             throw $e;
@@ -180,8 +178,6 @@ class Order extends AbstractGateway
 
             $this->relativeUrl = 'A3341O032';
 
-            $this->svcid = '';
-
             return $this->request([
                 'ORDER_LIST' => $body
             ]);
@@ -224,8 +220,6 @@ class Order extends AbstractGateway
 
             $this->relativeUrl = 'A3341O033';
 
-            $this->svcid = '';
-
             return $this->request($body);
         }catch (\Throwable $e) {
             throw $e;
@@ -267,8 +261,6 @@ class Order extends AbstractGateway
 
             $this->relativeUrl = 'A3341O034';
 
-            $this->svcid = '';
-
             return $this->request([
                 'ORDER_LIST' => $body
             ]);
@@ -305,8 +297,6 @@ class Order extends AbstractGateway
 
             $this->relativeUrl = 'A3341O035';
 
-            $this->svcid = '';
-
             return $this->request($body);
         }catch (\Throwable $e) {
             throw $e;
@@ -333,8 +323,6 @@ class Order extends AbstractGateway
             ];
 
             $this->relativeUrl = 'A3341O036';
-
-            $this->svcid = '';
 
             return $this->request($body);
         }catch (\Throwable $e) {

@@ -51,7 +51,6 @@ class LifeAccount extends AbstractGateway
     {
         try {
             $this->relativeUrl = 'svc_occLoginValidate';
-            $this->svcid = '';
 
             $body = [
                 'USERID' => $params['userId'],
