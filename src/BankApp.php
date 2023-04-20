@@ -39,6 +39,11 @@ class BankApp extends Foundation
         return $this->getConfig('url') ?: '';
     }
 
+    public function getSvcid()
+    {
+        return $this->getConfig('svcid') ?: '';
+    }
+
     public function getPublicKey()
     {
         return $this->getConfig('public_key') ?: '';

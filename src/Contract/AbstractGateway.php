@@ -53,7 +53,7 @@ abstract class AbstractGateway
     {
         return [
             'CLD_HEADER' => [
-                'CLD_TX_CHNL' => $this->svcid, // 服务方编号
+                'CLD_TX_CHNL' => $this->app->getSvcid(), // 服务方编号
                 'CLD_TX_TIME' => date('YmdHis'), // 通讯时间
                 'CLD_TX_CODE' => $this->relativeUrl, // 接口索引
                 'CLD_TX_SEQ' => $this->app->getRequestId() // 全局事件流水号
