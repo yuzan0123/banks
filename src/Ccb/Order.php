@@ -75,7 +75,7 @@ class Order extends AbstractGateway
             if(! $mac['TOKEN']) unset($mac['TOKEN']);
             if(! $mac['PAYSUCCESSURL']) unset($mac['PAYSUCCESSURL']);
             if(! $mac['PAYBITMAP']) unset($mac['PAYBITMAP']);
-//            $mac = md5(http_build_query($mac));
+            $mac = md5(http_build_query($mac));
             /* mac */
 
             $body['MAC'] = $mac;
