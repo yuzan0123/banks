@@ -80,8 +80,6 @@ class Order extends AbstractGateway
 
             $body['MAC'] = $mac;
 
-            $this->relativeUrl = 'A3341O031';
-
 //            $cnt = $this->app->decrypt->publicEncrypt(json_encode($this->struct($body)));
 
             return [
