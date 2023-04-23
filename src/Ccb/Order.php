@@ -13,7 +13,7 @@ class Order extends AbstractGateway
     /**
      * 前端访问建行生活收银台的参数
      * @param array $params
-     * @return string
+     * @return array
      * @throws \Throwable
      */
     public function orderPay(array $params): string
@@ -82,14 +82,14 @@ class Order extends AbstractGateway
 
             $this->relativeUrl = 'A3341O031';
 
-            $cnt = $this->app->decrypt->publicEncrypt(json_encode($this->struct($body)));
+//            $cnt = $this->app->decrypt->publicEncrypt(json_encode($this->struct($body)));
 
-            return http_build_query([
-                'txcode' => 'A3341OM01',
+            return [
+                'txcode' => 'A3341OM01', // 收银固定交易码
                 'svcid' => $this->app->getSvcid(),
-                'cnt' => $cnt,
+                'cnt' => $body,
                 'mac' => $mac,
-            ]);
+            ];
 
         }catch (\Throwable $e) {
             throw $e;
