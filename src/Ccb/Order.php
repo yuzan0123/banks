@@ -29,7 +29,7 @@ class Order extends AbstractGateway
                 'PAYMENT' => $params['price'],
                 'CURCODE' => '01',
                 'TXCODE' => '520100',
-                'REMARK1' => $params['remark1'] ?? '',
+                'REMARK1' => $params['remark1'] ?? 'ccbpay',
                 'REMARK2' => $this->app->getSvcid(), // 服务方编号
                 'TYPE' => '1',
                 'GATEWAY' => '0',
