@@ -16,7 +16,7 @@ class Order extends AbstractGateway
      * @return array
      * @throws \Throwable
      */
-    public function orderPay(array $params): string
+    public function orderPay(array $params)
     {
         try {
             $mac = $body = [
