@@ -30,7 +30,7 @@ class Order extends AbstractGateway
                 'CURCODE' => '01',
                 'TXCODE' => '520100',
                 'REMARK1' => $params['remark1'] ?? '',
-                'REMARK2' => $this->app->getForMid(), // 服务方编号
+                'REMARK2' => $this->app->getSvcid(), // 服务方编号
                 'TYPE' => '1',
                 'GATEWAY' => '0',
                 'CLIENTIP' => $params['clientIp'] ?? '',
@@ -52,7 +52,7 @@ class Order extends AbstractGateway
                 'EXTENDPARAMS' => $params['extend'] ?? '',
                 'PLATFORMPUB' => $this->app->getPublicKey(), // 服务方公钥
                 'MAC' => '',
-                'PLATFORMID' => $this->app->getForMid(), // 服务方编号
+                'PLATFORMID' => $this->app->getSvcid(), // 服务方编号
                 'ENCPUB' => $this->app->getEncPub(), // 商户公钥密文
                 'SCNID' => $params['scanId'] ?? '',
                 'SCN_PLTFRM_ID' => $params['scnPltId'] ?? '',
