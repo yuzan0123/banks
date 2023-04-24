@@ -61,6 +61,19 @@ class Order extends AbstractGateway
             /* body 参数定义*/
             if(isset($body['MERCHANTID']) && ! $body['MERCHANTID']) unset($body['MERCHANTID']);
             if(isset($body['POSID']) && ! $body['POSID']) unset($body['POSID']);
+            if(isset($body['POSID19']) && ! $body['POSID19']) unset($body['POSID19']);
+            if(isset($body['INSTALLNUM']) && ! $body['INSTALLNUM']) unset($body['INSTALLNUM']);
+            if(isset($body['TOKEN']) && ! $body['TOKEN']) unset($body['TOKEN']);
+            if(isset($body['PAYSUCCESSURL']) && ! $body['PAYSUCCESSURL']) unset($body['PAYSUCCESSURL']);
+            if(isset($body['PAYBITMAP']) && ! $body['PAYBITMAP']) unset($body['PAYBITMAP']);
+            if(isset($body['POINTAVYID']) && ! $body['POINTAVYID']) unset($body['POINTAVYID']);
+            if(isset($body['DCEPDEPACCNO']) && ! $body['DCEPDEPACCNO']) unset($body['DCEPDEPACCNO']);
+            if(isset($body['COUPONAVYID']) && ! $body['COUPONAVYID']) unset($body['COUPONAVYID']);
+            if(isset($body['ONLY_CREDIT_PAY_FLAG']) && ! $body['ONLY_CREDIT_PAY_FLAG']) unset($body['ONLY_CREDIT_PAY_FLAG']);
+            if(isset($body['FIXEDPOINTVAL']) && ! $body['FIXEDPOINTVAL']) unset($body['FIXEDPOINTVAL']);
+            if(isset($body['EXTENDPARAMS']) && ! $body['EXTENDPARAMS']) unset($body['EXTENDPARAMS']);
+            if(isset($body['SCNID']) && ! $body['SCNID']) unset($body['SCNID']);
+            if(isset($body['SCN_PLTFRM_ID']) && ! $body['SCN_PLTFRM_ID']) unset($body['SCN_PLTFRM_ID']);
             if(isset($body['BRANCHID']) && ! $body['BRANCHID']) unset($body['BRANCHID']);
             if(isset($body['PLATMCTID']) && ! $body['PLATMCTID']) unset($body['PLATMCTID']);
             if(isset($body['PLATFORMPUB']) && ! $body['PLATFORMPUB']) unset($body['PLATFORMPUB']);
@@ -75,6 +88,13 @@ class Order extends AbstractGateway
             if(! $mac['TOKEN']) unset($mac['TOKEN']);
             if(! $mac['PAYSUCCESSURL']) unset($mac['PAYSUCCESSURL']);
             if(! $mac['PAYBITMAP']) unset($mac['PAYBITMAP']);
+            if(! $mac['INSTALLNUM']) unset($mac['INSTALLNUM']);
+            if(! $mac['POINTAVYID']) unset($mac['POINTAVYID']);
+            if(! $mac['DCEPDEPACCNO']) unset($mac['DCEPDEPACCNO']);
+            if(! $mac['COUPONAVYID']) unset($mac['COUPONAVYID']);
+            if(! $mac['ONLY_CREDIT_PAY_FLAG']) unset($mac['ONLY_CREDIT_PAY_FLAG']);
+            if(! $mac['FIXEDPOINTVAL']) unset($mac['FIXEDPOINTVAL']);
+            if(! $mac['EXTENDPARAMS']) unset($mac['EXTENDPARAMS']);
             $mac = strtoupper(md5(http_build_query($mac)));
             /* mac */
 
