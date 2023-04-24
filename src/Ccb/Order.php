@@ -81,7 +81,7 @@ class Order extends AbstractGateway
             /* body */
 
             /* mac 参数定义*/
-            unset($mac['POSID19'],$mac['PLATFORMID'],$mac['ENCPUB'],$mac['SCNID'],$mac['SCN_PLTFRM_ID']);
+            unset($mac['POSID19'],$mac['PLATFORMID'],$mac['ENCPUB'],$mac['SCNID'],$mac['SCN_PLTFRM_ID'],$mac['MAC']);
             if(! $mac['PLATMCTID']) unset($mac['PLATMCTID']);
             if(! $mac['TIMEOUT']) unset($mac['TIMEOUT']);
             if(! $mac['USERID']) unset($mac['USERID']);
