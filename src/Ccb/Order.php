@@ -76,7 +76,7 @@ class Order extends AbstractGateway
             if(isset($body['SCN_PLTFRM_ID']) && ! $body['SCN_PLTFRM_ID']) unset($body['SCN_PLTFRM_ID']);
             if(isset($body['BRANCHID']) && ! $body['BRANCHID']) unset($body['BRANCHID']);
             if(isset($body['PLATMCTID']) && ! $body['PLATMCTID']) unset($body['PLATMCTID']);
-            if(isset($body['PLATFORMPUB']) && ! $body['PLATFORMPUB']) unset($body['PLATFORMPUB']);
+            unset($body['PLATFORMPUB']); // 仅作为源串参加MD5摘要，不作为参数传递
             if(isset($body['ENCPUB']) && ! $body['ENCPUB']) unset($body['ENCPUB']);
             /* body */
 
