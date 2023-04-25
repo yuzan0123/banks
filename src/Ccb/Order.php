@@ -142,7 +142,7 @@ class Order extends AbstractGateway
                 'PAY_USER_ID' => $params['payUserId'] ?? '',
                 'TOTAL_REFUND_AMT' => $params['totalRefundPrice'] ?? '',
                 'PREFTL_MRCH_ID' => '',
-                'PAY_MRCH_ID' => '',
+                'PAY_MRCH_ID' => $this->app->getMid(),
                 'PLAT_MCT_ID' => $this->app->getPlMid(),
                 'OCCCOUP_DISCOUNT_AMT' => '',
                 'OCCCOUP_DISCOUNT_AMT_DESC' => '',
