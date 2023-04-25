@@ -99,7 +99,7 @@ class Order extends AbstractGateway
 //            $mac = md5(http_build_query($mac));
             /* mac */
 
-            $body['MAC'] = $mac;
+            $body['MAC'] = $mac['MAC'] = md5(http_build_query($mac));
 
 //            $cnt = $this->app->decrypt->publicEncrypt(json_encode($this->struct($body)));
 
