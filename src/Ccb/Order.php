@@ -61,6 +61,7 @@ class Order extends AbstractGateway
             /* body 参数定义*/
             if(isset($body['MERCHANTID']) && ! $body['MERCHANTID']) unset($body['MERCHANTID']);
             if(isset($body['POSID']) && ! $body['POSID']) unset($body['POSID']);
+            if(isset($body['USERID']) && ! $body['USERID']) unset($body['USERID']);
             unset($body['POSID19']);
             if(isset($body['INSTALLNUM']) && ! $body['INSTALLNUM']) unset($body['INSTALLNUM']);
             if(isset($body['TOKEN']) && ! $body['TOKEN']) unset($body['TOKEN']);
