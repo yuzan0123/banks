@@ -96,7 +96,7 @@ class Order extends AbstractGateway
             if(! $mac['FIXEDPOINTVAL']) unset($mac['FIXEDPOINTVAL']);
             if(! $mac['EXTENDPARAMS']) unset($mac['EXTENDPARAMS']);
 //            $mac = strtoupper(md5(http_build_query($mac)));
-            $mac = md5(http_build_query($mac));
+//            $mac = md5(http_build_query($mac));
             /* mac */
 
             $body['MAC'] = $mac;
