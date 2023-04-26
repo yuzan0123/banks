@@ -7,15 +7,15 @@ trait HttpRequests
 
     /**
      * @param array $body
-     * @return array|\Psr\Http\Message\StreamInterface
+     * @return array|string
      * @throws \Exception
      */
     public function request(array $body)
     {
         try {
             $resp = $this->app->http
-                ->json($this->app->getUrl() . $this->relativeUrl, $body)
-                ->getBody();
+                ->json($this->app->getUrl(), $body)
+                ->getBody()->getContents();
             if ($resp) {
                 return $resp;
             }
