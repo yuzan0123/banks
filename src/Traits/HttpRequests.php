@@ -14,10 +14,14 @@ trait HttpRequests
     {
         try {
             $resp = $this->app->http
-                ->json($this->app->getUrl(), $body)
-                ->getBody()->getContents();
+                ->request('POST',$this->app->getUrl(), [
+                    \GuzzleHttp\RequestOptions::HEADERS => [
+                        'Content-Type' => 'application/json',
+                    ],
+                    \GuzzleHttp\RequestOptions::JSON => $body
+                ])->getBody();
             if ($resp) {
-                return $resp;
+                return json_decode((string)$resp, true);
             }
             return [];
         } catch (\Throwable $e) {
