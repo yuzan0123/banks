@@ -14,7 +14,7 @@ trait HttpRequests
     {
         try {
             $resp = $this->app->http
-                ->request('POST',$this->app->getUrl(), [
+                ->request('POST',$this->app->getUrl() . $this->relativeUrl, [
                     \GuzzleHttp\RequestOptions::HEADERS => [
                         'Content-Type' => 'application/json',
                     ],
