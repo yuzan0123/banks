@@ -151,7 +151,7 @@ class Order extends AbstractGateway
                 'PLAT_ORDER_TYPE' => '',
             ];
 
-            $this->relativeUrl = 'A3341O031';
+            $this->relativeUrl = '?txcode=A3341O031';
 
             return $this->request($body);
         }catch (\Throwable $e) {
