@@ -100,14 +100,10 @@ class Order extends AbstractGateway
 //            $mac = md5(http_build_query($mac));
             /* mac */
 
-            $body['MAC'] = md5(http_build_query($mac));
-
 //            $cnt = $this->app->decrypt->publicEncrypt(json_encode($this->struct($body)));
 
             return [
-                'txcode' => 'A3341OM01', // 收银固定交易码
-                'svcid' => $this->app->getSvcid(),
-                'cnt' => $body,
+                'body' => $body,
                 'mac' => $mac,
             ];
 
