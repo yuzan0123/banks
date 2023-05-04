@@ -38,7 +38,7 @@ class Order extends AbstractGateway
                 'PROINFO' => $params['proinfo'] ?? '',
                 'REFERER' => $params['referer'] ?? '',
                 'INSTALLNUM' => $params['installNum'] ?? '',
-                'THIRDAPPINFO' => $params['thirdAppInfo'],
+                'THIRDAPPINFO' => $params['thirdAppInfo'] ?? 'comccbpay1234567890cloudmerchant',
                 'TIMEOUT' => $params['timeout'] ?? date('YmdHis', time() + 1800),
                 'USERID' => $params['userId'] ?? '',
                 'TOKEN' => $params['token'] ?? '',
