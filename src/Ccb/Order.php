@@ -184,7 +184,7 @@ class Order extends AbstractGateway
                     'PAY_USER_ID' => $val['payUserId'] ?? '',
                     'TOTAL_REFUND_AMT' => $val['totalRefundPrice'] ?? '',
                     'PREFTL_MRCH_ID' => '',
-                    'PAY_MRCH_ID' => '',
+                    'PAY_MRCH_ID' => $this->app->getMid(),
                     'PLAT_MCT_ID' => $this->app->getPlMid(),
                     'OCCCOUP_DISCOUNT_AMT' => '',
                     'OCCCOUP_DISCOUNT_AMT_DESC' => '',
@@ -192,7 +192,7 @@ class Order extends AbstractGateway
                 ];
             }
 
-            $this->relativeUrl = 'A3341O032';
+            $this->relativeUrl = '?txcode=A3341O032';
 
             return $this->request([
                 'ORDER_LIST' => $body
@@ -226,15 +226,15 @@ class Order extends AbstractGateway
                 'PAY_USER_ID' => $params['payUserId'] ?? '',
                 'TOTAL_REFUND_AMT' => $params['totalRefundPrice'] ?? '',
                 'PREFTL_MRCH_ID' => '',
-                'PAY_MRCH_ID' => $this->app->getPlMid(),
-                'PLAT_MCT_ID' => '',
+                'PAY_MRCH_ID' => $this->app->getMid(),
+                'PLAT_MCT_ID' => $this->app->getPlMid(),
                 'OCCCOUP_DISCOUNT_AMT' => '',
                 'OCCCOUP_DISCOUNT_AMT_DESC' => '',
                 'SPECIAL_STATUS' => '',
                 'PLAT_ORDER_TYPE' => '',
             ];
 
-            $this->relativeUrl = 'A3341O033';
+            $this->relativeUrl = '?txcode=A3341O033';
 
             return $this->request($body);
         }catch (\Throwable $e) {
@@ -267,15 +267,15 @@ class Order extends AbstractGateway
                     'PAY_USER_ID' => $val['payUserId'] ?? '',
                     'TOTAL_REFUND_AMT' => $val['totalRefundPrice'] ?? '',
                     'PREFTL_MRCH_ID' => '',
-                    'PAY_MRCH_ID' => $this->app->getPlMid(),
-                    'PLAT_MCT_ID' => '',
+                    'PAY_MRCH_ID' => $this->app->getMid(),
+                    'PLAT_MCT_ID' => $this->app->getPlMid(),
                     'OCCCOUP_DISCOUNT_AMT' => '',
                     'OCCCOUP_DISCOUNT_AMT_DESC' => '',
                     'SPECIAL_STATUS' => '',
                 ];
             }
 
-            $this->relativeUrl = 'A3341O034';
+            $this->relativeUrl = '?txcode=A3341O034';
 
             return $this->request([
                 'ORDER_LIST' => $body
@@ -311,7 +311,7 @@ class Order extends AbstractGateway
                 'PAGE' => $params['page'] ?? 1,
             ];
 
-            $this->relativeUrl = 'A3341O035';
+            $this->relativeUrl = '?txcode=A3341O035';
 
             return $this->request($body);
         }catch (\Throwable $e) {
@@ -338,7 +338,7 @@ class Order extends AbstractGateway
                 'EDDT_TM' => $params['endDate'],
             ];
 
-            $this->relativeUrl = 'A3341O036';
+            $this->relativeUrl = '?txcode=A3341O036';
 
             return $this->request($body);
         }catch (\Throwable $e) {
