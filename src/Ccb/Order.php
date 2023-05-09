@@ -296,18 +296,18 @@ class Order extends AbstractGateway
         try {
             $body = [
                 'TX_TYPE' => $params['type'],
-                'TXN_PRD_TPCD' => $params['protpcd'] ?? '06',
-                'STDT_TM' => $params['startDate'],
-                'EDDT_TM' => $params['endDate'],
-                'ONLN_PY_TXN_ORDR_ID' => $params['orderId'],
+                'TXN_PRD_TPCD' => $params['protpcd'] ?? '99',
+                'STDT_TM' => $params['startDate'] ?? '', // TXN_PRD_TPCD 99必填
+                'EDDT_TM' => $params['endDate'] ?? '', // TXN_PRD_TPCD 99必填
+                'ONLN_PY_TXN_ORDR_ID' => $params['orderId'] ?? '', // TXN_PRD_TPCD 06必填
                 'SCN_IDR' => $params['scnId'] ?? '',
                 'PLAT_MCT_ID' => $this->app->getPlMid(),
                 'CUSTOMERID' => $this->app->getMid(),
                 'BRANCHID' => $this->app->getBranchId(),
                 'POS_CODE' => $this->app->getPostId(),
                 'POS_ID' => $this->app->getPostId19(),
-                'TXN_STATUS' => $params['orderStatus'],
-                'MSGRP_JRNL_NO' => $params['jrnlNo'] ?? '',
+                'TXN_STATUS' => $params['orderStatus'], // 00-交易成功标志；01-交易失败；02-不确定
+                'MSGRP_JRNL_NO' => $params['jrnlNo'] ?? '', // TXN_PRD_TPCD 06必填
                 'PAGE' => $params['page'] ?? 1,
             ];
 
