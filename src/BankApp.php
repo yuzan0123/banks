@@ -74,6 +74,11 @@ class BankApp extends Foundation
         return $this->getConfig('mid') ?: '';
     }
 
+    public function getStoreId()
+    {
+        return $this->getConfig('store_id') ?: '';
+    }
+
     public function getPostId()
     {
         return $this->getConfig('post_id') ?: '';
