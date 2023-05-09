@@ -295,8 +295,8 @@ class Order extends AbstractGateway
     {
         try {
             $body = [
-                'TX_TYPE' => $params['type'],
-                'TXN_PRD_TPCD' => $params['protpcd'] ?? '99',
+                'TX_TYPE' => $params['type'], // 0-支付，包括所有的支付/消费类功能 1-退款，包括所有的退款/退货/撤销类功能
+                'TXN_PRD_TPCD' => $params['protpcd'] ?? '99', // 06-近24小时内交易，99-自定义时间段查询 备注：06查询近24小时内交易，仅返回符合条件的最近一笔记录
                 'STDT_TM' => $params['startDate'] ?? '', // TXN_PRD_TPCD 99必填
                 'EDDT_TM' => $params['endDate'] ?? '', // TXN_PRD_TPCD 99必填
                 'ONLN_PY_TXN_ORDR_ID' => $params['orderId'] ?? '', // TXN_PRD_TPCD 06必填
