@@ -299,7 +299,7 @@ class Order extends AbstractGateway
                 'TXN_PRD_TPCD' => $params['protpcd'] ?? '06',
                 'STDT_TM' => $params['startDate'],
                 'EDDT_TM' => $params['endDate'],
-                'ONLN_PY_TXN_ORDR_ID' => $params['orderId'] ?? '',
+                'ONLN_PY_TXN_ORDR_ID' => $params['orderId'],
                 'SCN_IDR' => $params['scnId'] ?? '',
                 'PLAT_MCT_ID' => $this->app->getPlMid(),
                 'CUSTOMERID' => $this->app->getMid(),
