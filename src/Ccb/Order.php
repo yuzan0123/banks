@@ -141,10 +141,10 @@ class Order extends AbstractGateway
                 'PREFTL_MRCH_ID' => '',
                 'PAY_MRCH_ID' => $this->app->getMid(),
                 'PLAT_MCT_ID' => $this->app->getPlMid(),
-                'OCCCOUP_DISCOUNT_AMT' => '',
-                'OCCCOUP_DISCOUNT_AMT_DESC' => '',
-                'SPECIAL_STATUS' => '',
-                'PLAT_ORDER_TYPE' => '',
+                'OCCCOUP_DISCOUNT_AMT' => $params['occ_discount_amt'] ?? '',
+                'OCCCOUP_DISCOUNT_AMT_DESC' => $params['occ_discount_amt_desc'] ?? '',
+                'SPECIAL_STATUS' => $params['special_status'] ?? '',
+                'PLAT_ORDER_TYPE' => $params['plat_order_type'] ?? '',
             ];
 
             $this->relativeUrl = '?txcode=A3341O031';
@@ -186,9 +186,9 @@ class Order extends AbstractGateway
                     'PREFTL_MRCH_ID' => '',
                     'PAY_MRCH_ID' => $this->app->getMid(),
                     'PLAT_MCT_ID' => $this->app->getPlMid(),
-                    'OCCCOUP_DISCOUNT_AMT' => '',
-                    'OCCCOUP_DISCOUNT_AMT_DESC' => '',
-                    'SPECIAL_STATUS' => '',
+                    'OCCCOUP_DISCOUNT_AMT' => $params['occ_discount_amt'] ?? '',
+                    'OCCCOUP_DISCOUNT_AMT_DESC' => $params['occ_discount_amt_desc'] ?? '',
+                    'SPECIAL_STATUS' => $params['special_status'] ?? '',
                 ];
             }
 
@@ -228,10 +228,10 @@ class Order extends AbstractGateway
                 'PREFTL_MRCH_ID' => '',
                 'PAY_MRCH_ID' => $this->app->getMid(),
                 'PLAT_MCT_ID' => $this->app->getPlMid(),
-                'OCCCOUP_DISCOUNT_AMT' => '',
-                'OCCCOUP_DISCOUNT_AMT_DESC' => '',
-                'SPECIAL_STATUS' => '',
-                'PLAT_ORDER_TYPE' => '',
+                'OCCCOUP_DISCOUNT_AMT' => $params['occ_discount_amt'] ?? '',
+                'OCCCOUP_DISCOUNT_AMT_DESC' => $params['occ_discount_amt_desc'] ?? '',
+                'SPECIAL_STATUS' => $params['special_status'] ?? '',
+                'PLAT_ORDER_TYPE' => $params['plat_order_type'] ?? '',
             ];
 
             $this->relativeUrl = '?txcode=A3341O033';
@@ -269,9 +269,9 @@ class Order extends AbstractGateway
                     'PREFTL_MRCH_ID' => '',
                     'PAY_MRCH_ID' => $this->app->getMid(),
                     'PLAT_MCT_ID' => $this->app->getPlMid(),
-                    'OCCCOUP_DISCOUNT_AMT' => '',
-                    'OCCCOUP_DISCOUNT_AMT_DESC' => '',
-                    'SPECIAL_STATUS' => '',
+                    'OCCCOUP_DISCOUNT_AMT' => $params['occ_discount_amt'] ?? '',
+                    'OCCCOUP_DISCOUNT_AMT_DESC' => $params['occ_discount_amt_desc'] ?? '',
+                    'SPECIAL_STATUS' => $params['special_status'] ?? '',
                 ];
             }
 
