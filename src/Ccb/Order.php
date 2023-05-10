@@ -51,7 +51,7 @@ class Order extends AbstractGateway
                 'FIXEDPOINTVAL' => $params['fixedpoin'] ?? '',
                 'EXTENDPARAMS' => $params['extend'] ?? '',
                 'PLATFORMPUB' => $this->app->getPublicKey(), // 服务方公钥
-                'MAC' => '', // 排序
+                'MAC' => '', // 排序的加密参数
                 'PLATFORMID' => $this->app->getSvcid(), // 服务方编号
                 'ENCPUB' => $this->app->getEncPub(), // 商户公钥密文
                 'SCNID' => $params['scanId'] ?? '',
