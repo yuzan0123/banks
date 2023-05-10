@@ -27,12 +27,12 @@ class Order extends AbstractGateway
                 'PLATMCTID' => $this->app->getPlMid(),
                 'ORDERID' => $params['orderId'],
                 'PAYMENT' => $params['price'],
-                'CURCODE' => '01',
-                'TXCODE' => '520100',
+                'CURCODE' => $params['curcode'] ?? '01',
+                'TXCODE' => $params['txcode'] ?? '520100',
                 'REMARK1' => $params['remark1'] ?? '',
                 'REMARK2' => $this->app->getSvcid(), // 服务方编号
-                'TYPE' => '1',
-                'GATEWAY' => '0',
+                'TYPE' => $params['type'] ?? '1',
+                'GATEWAY' => $params['gateway'] ?? '0',
                 'CLIENTIP' => $params['clientIp'] ?? '',
                 'REGINFO' => $params['reginfo'] ?? '',
                 'PROINFO' => $params['proinfo'] ?? '',
@@ -51,7 +51,7 @@ class Order extends AbstractGateway
                 'FIXEDPOINTVAL' => $params['fixedpoin'] ?? '',
                 'EXTENDPARAMS' => $params['extend'] ?? '',
                 'PLATFORMPUB' => $this->app->getPublicKey(), // 服务方公钥
-                'MAC' => '',
+                'MAC' => '', // 排序
                 'PLATFORMID' => $this->app->getSvcid(), // 服务方编号
                 'ENCPUB' => $this->app->getEncPub(), // 商户公钥密文
                 'SCNID' => $params['scanId'] ?? '',
@@ -182,9 +182,9 @@ class Order extends AbstractGateway
                     'PREFTL_MRCH_ID' => $this->app->getStoreId(),
                     'PAY_MRCH_ID' => $this->app->getMid(),
                     'PLAT_MCT_ID' => $this->app->getPlMid(),
-                    'OCCCOUP_DISCOUNT_AMT' => $params['occ_discount_amt'] ?? '',
-                    'OCCCOUP_DISCOUNT_AMT_DESC' => $params['occ_discount_amt_desc'] ?? '',
-                    'SPECIAL_STATUS' => $params['special_status'] ?? '',
+                    'OCCCOUP_DISCOUNT_AMT' => $val['occ_discount_amt'] ?? '',
+                    'OCCCOUP_DISCOUNT_AMT_DESC' => $val['occ_discount_amt_desc'] ?? '',
+                    'SPECIAL_STATUS' => $val['special_status'] ?? '',
                 ];
             }
 
@@ -265,9 +265,9 @@ class Order extends AbstractGateway
                     'PREFTL_MRCH_ID' => $this->app->getStoreId(),
                     'PAY_MRCH_ID' => $this->app->getMid(),
                     'PLAT_MCT_ID' => $this->app->getPlMid(),
-                    'OCCCOUP_DISCOUNT_AMT' => $params['occ_discount_amt'] ?? '',
-                    'OCCCOUP_DISCOUNT_AMT_DESC' => $params['occ_discount_amt_desc'] ?? '',
-                    'SPECIAL_STATUS' => $params['special_status'] ?? '',
+                    'OCCCOUP_DISCOUNT_AMT' => $val['occ_discount_amt'] ?? '',
+                    'OCCCOUP_DISCOUNT_AMT_DESC' => $val['occ_discount_amt_desc'] ?? '',
+                    'SPECIAL_STATUS' => $val['special_status'] ?? '',
                 ];
             }
 
