@@ -25,8 +25,8 @@ class Order extends AbstractGateway
                 'BRANCHID' => $this->app->getBranchId(),
                 'POSID19' => $this->app->getPostId19(),
                 'PLATMCTID' => $this->app->getPlMid(),
-                'ORDERID' => $params['orderId'],
-                'USER_ORDERID' => $params['orderId'],
+                'ORDERID' => $params['orderId'], // 支付流水号
+                'USER_ORDERID' => $params['orderId'], // 用户订单号
                 'PAYMENT' => $params['price'],
                 'CURCODE' => $params['curcode'] ?? '01',
                 'TXCODE' => $params['txcode'] ?? '520100',
