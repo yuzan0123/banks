@@ -1,6 +1,6 @@
 <?php
 
-if (!function_exists('ccbPay')) {
+if (!function_exists('ccb')) {
     /**
      * 建行生活
      * @param string $name
@@ -8,7 +8,7 @@ if (!function_exists('ccbPay')) {
      * @throws \Psr\Container\ContainerExceptionInterface
      * @throws \Psr\Container\NotFoundExceptionInterface
      */
-    function ccbPay(string $name = 'ccb')
+    function ccb(string $name = 'ccb')
     {
         return \Hyperf\Utils\ApplicationContext::getContainer()->get(\Xyu\Banks\Hyperf\Factory::class)->make($name);
     }

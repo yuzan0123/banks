@@ -19,7 +19,7 @@ php bin/hyperf.php vendor:publish yzan/banks
 
 ```php
 Hyperf调用：
-$app = ccbPay()->life_account->occJumpUrl([]);
+$app = ccb()->life_account->occJumpUrl([]);
 其它调用：
 $app = (new \Xyu\Banks\BankApp($config))->life_account->occJumpUrl([]);
 ```
